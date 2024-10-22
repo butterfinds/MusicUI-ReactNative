@@ -1,12 +1,42 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ImageBackground, Modal} from 'react-native';
+import React, { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 
 export default function Loginscreen({navigation}) {
 
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+
+  const correctUsername = 'Kuyamik';
+  const correctPassword = 'Pighati';
+
+  const handleLogin = () => {
+    if (username === correctUsername && password === correctPassword) {
+      setAlertMessage('Login Successful! Welcome!');
+      setModalVisible(true);
+      // Navigate to the Home screen
+      navigation.navigate('Dashboard');
+    } else {
+      setAlertMessage('Login Failed. Please check your credentials.');
+      setModalVisible(true);
+    }
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
   const [fontsLoaded] = useFonts({
     'UberMove': require('./assets/UberMoveBold.otf') 
   });
+
+  if (!fontsLoaded) {
+    return null; // If fonts are not loaded, return null or a loading indicator.
+  }
+
 
 return (
 <LinearGradient
@@ -25,11 +55,11 @@ style={{ width: 200, height: 200, marginBottom: 10 }}
 <Text style={styles.title}>Login To Your Account</Text>
 <TextInput
 style={styles.input}
-placeholder=" Enter Email" placeholderTextColor="#888"
+placeholder=" Enter Email" placeholderTextColor="#888" value={username} onChangeText={setUsername}
 />
 <TextInput
 style={styles.input}
-placeholder=" Enter Password" placeholderTextColor="#888"
+placeholder=" Enter Password" placeholderTextColor="#888" value={password} onChangeText={setPassword}
 secureTextEntry={true}
 />
 <TouchableOpacity>
@@ -37,10 +67,22 @@ secureTextEntry={true}
 </TouchableOpacity>
 
 
-<TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate("Dashboard")} >
+<TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
 <Text style={styles.loginButtonText}>Login</Text>
 </TouchableOpacity>
 
+<Modal transparent={true} visible={isModalVisible} animationType="slide">
+  {/* blur ipiks*/}
+  <View style={styles.modalOverlay}>
+    {/* Modal content */}
+    <View style={styles.modalView}>
+      <Text style={styles.modalText}>{alertMessage}</Text>
+      <TouchableOpacity style={styles.button} onPress={closeModal}>
+        <Text style={styles.buttonText}>OK</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+</Modal>
 <Text style={styles.Littletitle}>--- Or Login With ---</Text>
 
 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, left: 23,}}>
@@ -147,5 +189,41 @@ color: '#fff',
 marginTop: 30,
 marginBottom: -5,
 fontFamily: 'UberMove',
-}
+}, 
+modalOverlay: {
+  flex: 1,
+  backgroundColor: 'rgba(0, 5, 0, 0.7)', // Semi-transparent black background
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+modalView: {
+  top: -50,
+  width: 300,
+  backgroundColor: 'white',
+  borderRadius: 16,
+  padding: 20,
+  alignItems: 'center',
+  elevation: 5,
+
+},
+modalText: {
+  fontSize: 18,
+  marginBottom: 20,
+  textAlign: 'center',
+  fontFamily: 'UberMove',
+},
+button: {
+  backgroundColor: '#34C759',
+  padding: 10,
+  width: 190,
+  borderRadius: 16,
+},
+buttonText: {
+  color: 'white',
+  fontSize: 16,
+  textAlign: 'center',
+  fontFamily: 'UberMove',
+},
+
+
 });

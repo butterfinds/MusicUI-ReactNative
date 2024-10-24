@@ -262,9 +262,10 @@ left: width * -0.01,
   
   },
   description: {
+    lineHeight: 36,
     color: 'white',
     fontFamily: 'UberMove',
-    fontSize: width * 0.040,
+    fontSize: width * 0.045,
     right: width * 0.2,
     marginRight: width * -0.1,
     paddingleft: width * 0.60,

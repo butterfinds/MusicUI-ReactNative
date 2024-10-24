@@ -56,7 +56,7 @@ export default function Dashboard({ navigation }) {
           <View title = "classical" style={styles.genreItem}>
           <View title = "text div" style={styles.cntalgn}>
           <Text style={styles.titlecnt}>John Carlo E. Salva</Text>
-          <Text style={styles.desccnt}>UI / UX Programmer</Text>
+          <Text style={styles.desccnt}>UI / UX Programmer, I designed the app's overall layout and user experience, ensuring it was both visually appealing and easy to navigate.</Text>
           </View>
           <TouchableOpacity> 
             <Image source={require('./assets/Salva.jpg')} style={styles.cntn2img}/>
@@ -66,7 +66,7 @@ export default function Dashboard({ navigation }) {
           <View title = "Rock" style={styles.genreItem}>
           <View style={styles.cntalgn}>
           <Text style={styles.titlecnt}>Christian Mike B. Pagasian</Text>
-          <Text style={styles.desccnt}>UI Programmer</Text>
+          <Text style={styles.desccnt}>UI Programmer,  I developed the app's login page, ensuring a secure and user-friendly experience.</Text>
           </View>
           <TouchableOpacity> 
             <Image source={require('./assets/kuyamik.jpg')} style={styles.cntn2img}/>
@@ -76,7 +76,7 @@ export default function Dashboard({ navigation }) {
           <View title = "Hip-Hop" style={styles.genreItem}>
           <View style={styles.cntalgn}>
           <Text style={styles.titlecnt}>Dindo Jr. Muring</Text>
-          <Text style={styles.desccnt}>UI Programmer</Text>
+          <Text style={styles.desccnt}>UI Programmer, I created the app's content pages, including the music genre exploration.</Text>
           </View>
           <TouchableOpacity> 
             <Image source={require('./assets/dindo.jpg')} style={styles.cntn2img}/>
@@ -86,7 +86,7 @@ export default function Dashboard({ navigation }) {
           <View title = "Reggae" style={styles.genreItem}>
           <View style={styles.cntalgn}>
           <Text style={styles.titlecnt}>Engel Llanto</Text>
-          <Text style={styles.desccnt}>User Persona</Text>
+          <Text style={styles.desccnt}>User Persona, conducted research to understand user needs and ensure the app met their expectations.</Text>
           </View>
           <TouchableOpacity> 
             <Image source={require('./assets/engel.jpg')} style={styles.cntn2img}/>
@@ -96,7 +96,7 @@ export default function Dashboard({ navigation }) {
           <View title = "EDM" style={styles.genreItem}>
           <View style={styles.cntalgn}>
           <Text style={styles.titlecnt}>Adrian Vine A. Cruz</Text>
-          <Text  style={styles.desccnt}>Color Theory / 60 30 10</Text>
+          <Text  style={styles.desccnt}>Color Theory expert. I carefully selected colors that were both attractive and modern. </Text>
           </View>
           <TouchableOpacity> 
             <Image source={require('./assets/vine.jpg')} style={styles.cntn2img}/>
@@ -106,7 +106,7 @@ export default function Dashboard({ navigation }) {
           <View title = "EDM" style={styles.genreItem}>
           <View style={styles.cntalgn}>
           <Text style={styles.titlecnt}>John Steven Solsona</Text>
-          <Text  style={styles.desccnt}>Typography / Spacing</Text>
+          <Text  style={styles.desccnt}>I played the part of Typography and Spacing. I carefully selected appropriate fonts and ensured that the text was easy to read and visually appealing.</Text>
           </View>
           <TouchableOpacity> 
             <Image source={require('./assets/solsona.jpg')} style={styles.cntn2img}/>
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     paddingVertical: height * 0.04,
   },
     cntn2img:  {
-    top: height * -0.04,
+    top: height * -0.07,
     width: width * 0.2,
     height: width * 0.2,
     borderRadius: 90,  
@@ -253,13 +253,17 @@ const styles = StyleSheet.create({
 
   },
   titlecnt: {
-    color: 'white',
+    color: '#1DB954',
     fontFamily: 'UberMove',
-    fontSize: width * 0.04,
+    fontSize: width * 0.05,
     left: width * 0.01,
-    paddingTop: height * 0.02,
+    paddingTop: height * 0.01,
+    paddingBottom: height * 0.01,
   },
   desccnt: {
+    textAlign: 'justify',
+    lineHeight: 22,
+    letterSpacing: 0.5,
     color: 'white',
     fontFamily: 'UberMove',
     fontSize: width * 0.035,

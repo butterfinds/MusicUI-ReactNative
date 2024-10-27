@@ -24,12 +24,12 @@ export default function App({ navigation }) {
         style={styles.imageBackground}
         imageStyle={styles.imageStyle}
       >
-        <Text style={styles.title}>Let's Get You In</Text>
+        <Text style={styles.title}>Let's get you in</Text>
 
         <View style={styles.buttonContainer}>
           {/* Google Button */}
           <TouchableOpacity style={styles.SloginButton} onPress={() => navigation.navigate('Dashboard')}>
-            <Text style={styles.sgloginButtonText}>Continue With Google</Text>
+            <Text style={styles.sgloginButtonText}>Continue with Google</Text>
             <Image
               source={require('./assets/gugil.png')}
               style={styles.socialIcon}
@@ -39,7 +39,7 @@ export default function App({ navigation }) {
 
           {/* Facebook Button */}
           <TouchableOpacity style={styles.SloginButton} onPress={() => navigation.navigate('Dashboard')}>
-            <Text style={styles.sloginButtonText}>Continue With Facebook</Text>
+            <Text style={styles.sloginButtonText}>Continue with Facebook</Text>
             <Image
               source={require('./assets/fisbuk.png')}
               style={styles.socialIcon}
@@ -49,7 +49,7 @@ export default function App({ navigation }) {
 
           {/* Apple Button */}
           <TouchableOpacity style={styles.SaloginButton} onPress={() => navigation.navigate('Dashboard')}>
-            <Text style={styles.saloginButtonText}>Continue With Apple</Text>
+            <Text style={styles.saloginButtonText}>Continue with Apple</Text>
             <Image source={require('./assets/apul.png')} style={styles.socialIcon2} resizeMode="contain"/>
           </TouchableOpacity>
         </View>
@@ -57,10 +57,10 @@ export default function App({ navigation }) {
         <Text style={styles.Littletitle}>--- Or ---</Text>
 
         <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.loginButtonText}>Login With Password</Text>
+          <Text style={styles.loginButtonText}>Log in with password</Text>
         </TouchableOpacity>
 
-        <Text style={styles.Little}>Don't Have An Account?</Text>
+        <Text style={styles.Little}>Don't have an account yet?</Text>
         <TouchableOpacity onPress={() => console.log('Sign up button pressed!')}>
           <Text style={styles.linkText}> Sign Up</Text>
         </TouchableOpacity>

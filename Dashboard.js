@@ -4,7 +4,7 @@ import { Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Foundation from '@expo/vector-icons/Foundation';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -14,138 +14,120 @@ export default function Dashboard({ navigation }) {
     'UberMove': require('./assets/UberMoveBold.otf') 
   });
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-
     <LinearGradient
-  colors={['rgba(2, 200, 10, 0.9)', '#102B2D', '#0E0E0E']} // Green with reduced opacity, then transition to other colors
-  start={{ x: 0, y: 0 }} // Start the gradient from the top-left corner
-  end={{ x: 0, y: 0.2 }}   // End the gradient at the bottom-right corner for an even blend
-  locations={[0, 0, 5]} // Adjusts how quickly the colors blend into each other
-  style={styles.container}
->
-
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={{ flex: 1}}>
-      <View style={styles.nav}>
-        <Image source={require('./assets/kuyamik.jpg')} style={styles.navimg} />
-        <View style={styles.textContainer}>
-          <Text style={styles.welcomeback}>Welcome back!</Text>
-          <Text style={styles.username}>KuyaMik</Text>
-        </View>
-
-        <TouchableOpacity style={styles.button}>
-          <View style={styles.linesContainer}>
-            <View style={styles.line1} />
-            <View style={styles.line2} />
-            <View style={styles.line3} />
+    colors={['rgba(2, 200, 10, 0.9)', '#102B2D', '#0E0E0E']} // Green with reduced opacity, then transition to other colors
+    start={{ x: 0, y: 0 }} // Start the gradient from the top-left corner
+    end={{ x: 0, y: 0.2 }}   // End the gradient at the bottom-right corner for an even blend
+    locations={[0, 0, 5]}
+      style={styles.container}
+    >
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={styles.nav}>
+          <Image source={require('./assets/kuyamik.jpg')} style={styles.navimg} />
+          <View style={styles.textContainer}>
+            <Text style={styles.welcomeback}>Welcome back!</Text>
+            <Text style={styles.username}>KuyaMik</Text>
           </View>
-        </TouchableOpacity>
-
-      </View>
-
-      <View style={styles.cntnt}>
-
-        <Text style={styles.musicfont}>Music</Text>
-
-        <ImageBackground source={require('./assets/guitar.jpg')} style={styles.textcnt}  borderRadius={16} imageStyle={{ opacity: 0.4 }} >
-          <Text style={styles.contentxt}  width={350} >Discover a diverse world of music genres. From pop to rock, jazz to hip-hop, find the perfect sound for every mood and moment!</Text>
-          
-          
-          <TouchableOpacity style={styles.btn}>
-               <Text style={styles.buttonText}>Go to contents →</Text>
-
+          <TouchableOpacity>
+            <MaterialCommunityIcons name="microsoft-xbox-controller-menu" size={35} color="#0bb949" />
           </TouchableOpacity>
-        </ImageBackground>
-      </View>
-
-
-      <View style={styles.cntnt2}>
-      <Text style={styles.musicfont}>Genre</Text>
-
-        <View style={styles.cntgenre}> 
-
-          <View title = "classical" style={styles.genreItem}>
-          <View title = "text div" style={styles.cntalgn}>
-          <Text style={styles.titlecnt}>Classical</Text>
-          <Text style={styles.desccnt}>a centuries-old genre known for its complexity</Text>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate('Classical')}> 
-            <Image source={require('./assets/classical.jpg')} style={styles.cntn2img}/>
-          </TouchableOpacity> 
-          </View>
-
-          <View title = "Rock" style={styles.genreItem}>
-          <View style={styles.cntalgn}>
-          <Text style={styles.titlecnt}>Rock</Text>
-          <Text style={styles.desccnt}>known for strong beats and electric guitars</Text>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate('Rock')}> 
-            <Image source={require('./assets/rock.jpg')} style={styles.cntn2img}/>
-          </TouchableOpacity> 
-          </View>
-
-          <View title = "Hip-Hop" style={styles.genreItem}>
-          <View style={styles.cntalgn}>
-          <Text style={styles.titlecnt}>Hip-Hop</Text>
-          <Text style={styles.desccnt}>combining rhythmic rapping with DJing and beat-making.</Text>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate('Hiphop')}> 
-            <Image source={require('./assets/hiphop.jpg')} style={styles.cntn2img}/>
-          </TouchableOpacity> 
-          </View>
-
-          <View title = "Reggae" style={styles.genreItem}>
-          <View style={styles.cntalgn}>
-          <Text style={styles.titlecnt}>Reggae</Text>
-          <Text style={styles.desccnt}>features offbeat rhythms and lyrics that promote peace and unity.</Text>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate('Reggae')}> 
-            <Image source={require('./assets/reggae.jpg')} style={styles.cntn2img}/>
-          </TouchableOpacity> 
-          </View>
-
-          <View title = "EDM" style={styles.genreItem}>
-          <View style={styles.cntalgn}>
-          <Text style={styles.titlecnt}>EDM</Text>
-          <Text  style={styles.desccnt}>encompasses a variety of electronic music styles designed for dance clubs and festivals.</Text>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate('Edm')}> 
-            <Image source={require('./assets/EDM.jpg')} style={styles.cntn2img}/>
-          </TouchableOpacity> 
-          </View>
-        
         </View>
-      </View>
 
-      <View title = "footer" style={styles.footer}>
+        <ScrollView style={{ flex: 1 }}>
+          <View style={styles.cntnt}>
+            <Text style={styles.musicfont}>Music</Text>
+            <ImageBackground source={require('./assets/guitar.jpg')} style={styles.textcnt} borderRadius={16} imageStyle={{ opacity: 0.4 }}>
+              <Text style={styles.contentxt} width={350}>
+                Discover a diverse world of music genres. From pop to rock, jazz to hip-hop, find the perfect sound for every mood and moment!
+              </Text>
+              <TouchableOpacity style={styles.btn}>
+                <Text style={styles.buttonText}>Go to contents →</Text>
+              </TouchableOpacity>
+            </ImageBackground>
+          </View>
 
-      <TouchableOpacity>
-         <Foundation name="home" size={30} color="#1DB954"/> 
-         <View>
-         <Text style={styles.footerText}>Home</Text>
-         </View>
-      </TouchableOpacity>
-     
-      <TouchableOpacity onPress={() => navigation.navigate('About')}>
-      <FontAwesome name="users" size={24} color="#1DB954" />
-      <View>
-      <Text style={styles.footerText}>About</Text>
-         </View>
-      </TouchableOpacity>
+          <View style={styles.cntnt2}>
+            <Text style={styles.musicfont}>Genre</Text>
+            <View style={styles.cntgenre}>
+              <TouchableOpacity onPress={() => navigation.navigate('Classical')}>
+                <View style={styles.genreItem}>
+                  <View style={styles.cntalgn}>
+                    <Text style={styles.titlecnt}>Classical</Text>
+                    <Text style={styles.desccnt}>A centuries-old genre known for its complexity.</Text>
+                  </View>
+                  <Image source={require('./assets/classical.jpg')} style={styles.cntn2img} />
+                </View>
+              </TouchableOpacity>
 
-      </View>
+              <TouchableOpacity onPress={() => navigation.navigate('Rock')}>
+                <View style={styles.genreItem}>
+                  <View style={styles.cntalgn}>
+                    <Text style={styles.titlecnt}>Rock</Text>
+                    <Text style={styles.desccnt}>Known for strong beats and electric guitars.</Text>
+                  </View>
+                  <Image source={require('./assets/rock.jpg')} style={styles.cntn2img} />
+                </View>
+              </TouchableOpacity>
 
-      </ScrollView>
-    </SafeAreaView>
+              <TouchableOpacity onPress={() => navigation.navigate('Hiphop')}>
+                <View style={styles.genreItem}>
+                  <View style={styles.cntalgn}>
+                    <Text style={styles.titlecnt}>Hip-Hop</Text>
+                    <Text style={styles.desccnt}>Combining rhythmic rapping with DJing and beat-making.</Text>
+                  </View>
+                  <Image source={require('./assets/hiphop.jpg')} style={styles.cntn2img} />
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => navigation.navigate('Reggae')}>
+                <View style={styles.genreItem}>
+                  <View style={styles.cntalgn}>
+                    <Text style={styles.titlecnt}>Reggae</Text>
+                    <Text style={styles.desccnt}>Features offbeat rhythms and lyrics that promote peace and unity.</Text>
+                  </View>
+                  <Image source={require('./assets/reggae.jpg')} style={styles.cntn2img} />
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => navigation.navigate('Edm')}>
+                <View style={styles.genreItem}>
+                  <View style={styles.cntalgn}>
+                    <Text style={styles.titlecnt}>EDM</Text>
+                    <Text style={styles.desccnt}>Designed for dance clubs and festivals.</Text>
+                  </View>
+                  <Image source={require('./assets/EDM.jpg')} style={styles.cntn2img} />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
+
+        <View style={styles.footer}>
+          <TouchableOpacity>
+            <Foundation name="home" size={23} color="#1DB954" style={{ left: 4.5, top: 13 }} />
+            <Text style={styles.footerText}>Home</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('About')}>
+            <FontAwesome name="users" size={18} color="#1DB954" style={{ left: 10, top: 13 }} />
+            <Text style={styles.footerText}>About</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
     </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     paddingTop: 25,
   },
   nav: {
@@ -153,58 +135,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: '5%', // Adjusted for consistent padding
+    paddingHorizontal: '5%',
     paddingBottom: 10,
   },
   navimg: {
-    width: width * 0.15, // Adjusted size based on screen width
+    width: width * 0.15,
     height: width * 0.15,
     borderRadius: (width * 0.15) / 2,
   },
   textContainer: {
-
     marginLeft: -70,
   },
   welcomeback: {
-    color: '#ffffff',
+    color: '#FFFFFF',
     fontFamily: 'UberMove',
-    fontSize: width * 0.06, 
-    right: width * 0.01,// Scaled font size
+    fontSize: 18,
+    right: width * 0.01,
   },
   username: {
-    color: 'white',
+    color: '#FFFFFF',
     fontFamily: 'UberMove',
     fontSize: width * 0.04,
-  },
-  button: {
-    backgroundColor: '#000000',
-    padding: width * 0.02,
-    borderRadius: 8,
-  },
-  linesContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-  },
-  line1: {
-
-    width: width * 0.1,
-    height: 3,
-    backgroundColor: '#1DB954',
-    marginVertical: 1,
-  },
-  line2: {
-    left: width * 0.03,
-    width: width * 0.07,
-    height: 3,
-    backgroundColor: '#1DB954',
-    marginVertical: 3,
-  },
-  line3: {
-    left: width * 0.05,
-    width: width * 0.05,
-    height: 3,
-    backgroundColor: '#1DB954',
-    marginVertical: 1,
   },
   cntnt: {
     width: '100%',
@@ -222,11 +173,9 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 16,
     justifyContent: 'center',
-    padding: 0,
-    
   },
   contentxt: {
-    color: 'white',
+    color: '#FFFFFF',
     fontFamily: 'UberMove',
     fontSize: width * 0.03,
     marginLeft: width * 0.02,
@@ -256,22 +205,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: height * 0.04,
   },
-    cntn2img:  {
+  cntn2img: {
     top: height * -0.04,
     width: width * 0.2,
     height: width * 0.2,
-    borderRadius: 8,  
+    borderRadius: 8,
     marginTop: -22,
-
   },
   titlecnt: {
-    color: 'white',
+    color: '#FFFFFF',
     fontFamily: 'UberMove',
     fontSize: width * 0.04,
     left: width * -0.03,
   },
   desccnt: {
-    color: 'white',
+    color: '#D3D3D3', // Lighter color for readability
     fontFamily: 'UberMove',
     fontSize: width * 0.035,
     left: width * -0.03,
@@ -281,12 +229,13 @@ const styles = StyleSheet.create({
     width: '70%',
   },
   footer: {
-    bottom: height * 0.02,
+    height: height * 0.08,
     width: '100%',
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'space-evenly',
-    left: width * 0.01,
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
   footerText: {
     color: 'white',
@@ -294,7 +243,8 @@ const styles = StyleSheet.create({
     fontSize: width * 0.04,
     textAlign: 'center',
     left: width * -0.02,
-  
+    top: 14,
+   
   },
 
 });

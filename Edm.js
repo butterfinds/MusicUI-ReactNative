@@ -1,9 +1,15 @@
 import { useFonts } from 'expo-font';
-import { SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground, ScrollView} from 'react-native';
 import { Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Foundation from '@expo/vector-icons/Foundation';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Entypo from '@expo/vector-icons/Entypo';
+import Slider from '@react-native-community/slider';
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -28,70 +34,123 @@ export default function Dashboard({navigation}) {
 
 
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{ flex: 1}}>
-      <View style={styles.nav}>
-        <Image source={require('./assets/kuyamik.jpg')} style={styles.navimg} />
+
+    <View style={styles.nav}>
+
+    <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+    <AntDesign name="arrowleft" size={24} color="#0bb949" />
+    </TouchableOpacity>
+
         <View style={styles.textContainer}>
-          <Text style={styles.welcomeback}>Welcome back!</Text>
-          <Text style={styles.username}>KuyaMik</Text>
+          <Text style={styles.welcomeback}> EDM Music </Text>
         </View>
 
-        <TouchableOpacity style={styles.button}>
-          <View style={styles.linesContainer}>
-            <View style={styles.line1} />
-            <View style={styles.line2} />
-            <View style={styles.line3} />
-          </View>
-        </TouchableOpacity>
+        <MaterialCommunityIcons name="microsoft-xbox-controller-menu" size={35} color="#0bb949" />
 
       </View>
+      <ScrollView style={{ flex: 1}}>
+      
 
       <View style={styles.cntnt2}>
-      <Text style={styles.musicfont}>Genre</Text>
-
-        <View style={styles.cntgenre}> 
-
-          <View title = "EDM" style={styles.genreItem}>
-          <View title = "text div" style={styles.cntalgn}>
-          <Text style={styles.titlecnt}>EDM</Text>
-          </View>
-          <TouchableOpacity> 
-            <Image source={require('./assets/EDM.jpg')} style={styles.cntn2img}/>
-          </TouchableOpacity> 
-          </View>
-
-          <View title = "EDM" style={styles.genredes}>
-          <View style={styles.genre}>
-          <Text style={styles.description}>Electronic Dance Music (EDM) is a genre of music that emerged in the late 20th century, characterized by synthesized beats, energetic rhythms, and digitally produced sounds. Originating from electronic music movements like house, techno, and trance, EDM is designed primarily for clubs and festivals, emphasizing bass drops, repetitive melodies, and high-energy beats. It often features loops and samples created by DJs and producers, with live performances using turntables, mixers, and software.Notable artists and DJs like Daft Punk, Calvin Harris, Avicii, and Tiësto have played a key role in shaping EDM's global popularity. The genre spans various subgenres, including house, dubstep, electro, and trap, each with its own distinct sound.</Text>
-          </View>
       
-         
-          </View>
 
-          
+        <View>          
+            <Image source={require('./assets/EDM.jpg')} style={styles.cntn2img}/>
+        </View> 
+        <View style={styles.slidetxt}>
+          <Text style={styles.slidetxt}>00:00</Text>
+          <Text style={styles.slidetxt2}>00:00</Text>
+          </View>
+        <Slider
+            style={{width: width * 0.9, height: 40, marginLeft: 15, marginTop: 5}}
+            minimumValue={0}
+            maximumValue={1}
+            minimumTrackTintColor="#0bb949"
+            maximumTrackTintColor="#ffffff"
+          />
+
+      
+        <View style={{flexDirection: 'row', marginLeft: 32, marginTop: 10}}>         
+        <TouchableOpacity>
+        <FontAwesome name="download" size={18} color="#0bb949"  style={{marginRight: 12, top: 9, }} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <FontAwesome6 name="shuffle" size={18} color="#0bb949"  style={{marginRight: 12, top: 9,marginLeft: 12}} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <AntDesign name="stepbackward" size={25} color="#0bb949" style={{marginRight: 14, top: 9, }} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <AntDesign name="play" size={45} color="#0bb949" style={{marginLeft: 10, marginRight: 10, left: 3}} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <AntDesign name="stepforward" size={25} color="#0bb949" style={{marginLeft: 14, top: 9, }} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <MaterialCommunityIcons name="playlist-music" size={24} color="#0bb949" style={{marginRight: 12, top: 6,marginLeft: 12}} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <Entypo name="add-to-list" size={24} color="#0bb949"  style={{marginRight: 12, top: 6, }} />
+        </TouchableOpacity>
         
         </View>
+        
+
+
+         
+          <View style={styles.descriptioncontainer}>
+          <View title = "Grieg: Peer Gynt Suite No. 1, Op. 46: I. Morning Mood" style={styles.genredes}>
+          <View style={styles.genre}>
+          <Text style={styles.description}>Electronic Dance Music (EDM) is a genre of music that emerged in the late 20th century, characterized by synthesized beats, energetic rhythms, and digitally produced sounds. Originating from electronic music movements like house, techno, and trance, EDM is designed primarily for clubs and festivals, emphasizing bass drops, repetitive melodies, and high-energy beats. It often features loops and samples created by DJs and producers, with live performances using turntables, mixers, and software.Notable artists and DJs like Daft Punk, Calvin Harris, Avicii, and Tiësto have played a key role in shaping EDM's global popularity. The genre spans various subgenres, including house, dubstep, electro, and trap, each with its own distinct sound.</Text>
+          <Text style={styles.description}></Text>
+          </View>    
+          </View>
+          </View>  
       </View>
+
+      <View style={styles.cntnt}>
+
+            <Text style={styles.musicfont}>Music</Text>
+
+            <ImageBackground source={require('./assets/guitar.jpg')} style={styles.textcnt}  borderRadius={16} imageStyle={{ opacity: 0.4 }} >
+            <View title = "Grieg: Peer Gynt Suite No. 1, Op. 46: I. Morning Mood" style={styles.genredes}>
+              <Text style={styles.contentxt}  width={350} >Discover a diverse world of music genres. From pop to rock, jazz to hip-hop, find the perfect sound for every mood and moment!</Text>
+              </View>
+              
+              <TouchableOpacity style={styles.btn}>
+                  <Text style={styles.buttonText}>Go to contents →</Text>
+
+              </TouchableOpacity>
+            </ImageBackground>
+            </View>
+
+            <View style={{ height: 80 }} />
+      </ScrollView >
 
       <View title = "footer" style={styles.footer}>
 
       <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
-         <Foundation name="home" size={30} color="#1DB954"/> 
-         <View>
-         <Text style={styles.footerText}>Home</Text>
-         </View>
-      </TouchableOpacity>
-     
-      <TouchableOpacity onPress={() => navigation.navigate('About')}>
-      <FontAwesome name="users" size={24} color="#1DB954" />
-      <View>
-      <Text style={styles.footerText}>About</Text>
-         </View>
-      </TouchableOpacity>
+            <Foundation name="home" size={23} color="#1DB954" style={{ left: 4.5, top: 13 }} /> 
+            <View>
+            <Text style={styles.footerText}>Home</Text>
+            </View>
+          </TouchableOpacity>
 
-      </View>
+          <TouchableOpacity onPress={() => navigation.navigate('About')}>
+          <FontAwesome name="users" size={18} color="#1DB954" style={{ left: 18, top: 15 }}/>
+          <View>
+          <Text style={{ color: 'white', fontFamily: 'UberMove', fontSize: width * 0.04, textAlign: 'center', left: 5, top: 19,}}>About</Text>
+            </View>
+          </TouchableOpacity>
 
-      </ScrollView>
+          </View>
+
     </SafeAreaView>
     </LinearGradient>
   );
@@ -131,42 +190,10 @@ const styles = StyleSheet.create({
     fontFamily: 'UberMove',
     fontSize: width * 0.06, 
     right: width * 0.01,// Scaled font size
+    left: 45,
   },
-  username: {
-    color: 'white',
-    fontFamily: 'UberMove',
-    fontSize: width * 0.04,
-  },
-  button: {
-    backgroundColor: '#000000',
-    padding: width * 0.02,
-    borderRadius: 8,
-  },
-  linesContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-  },
-  line1: {
-
-    width: width * 0.1,
-    height: 3,
-    backgroundColor: '#1DB954',
-    marginVertical: 1,
-  },
-  line2: {
-    left: width * 0.03,
-    width: width * 0.07,
-    height: 3,
-    backgroundColor: '#1DB954',
-    marginVertical: 3,
-  },
-  line3: {
-    left: width * 0.05,
-    width: width * 0.05,
-    height: 3,
-    backgroundColor: '#1DB954',
-    marginVertical: 1,
-  },
+  
+  
   cntnt: {
     width: '100%',
     paddingHorizontal: '5%',
@@ -193,64 +220,58 @@ const styles = StyleSheet.create({
     marginLeft: width * 0.02,
     textAlign: 'left',
   },
-  btn: {
-    alignSelf: 'center',
-    backgroundColor: '#FFFFFF',
-    paddingVertical: height * 0.01,
-    paddingHorizontal: width * 0.05,
-    top: height * 0.02,
-    left: width * 0.2,
-    borderRadius: 10,
-  },
-  buttonText: {
-    fontSize: width * 0.03,
-    color: '#000000',
-    fontFamily: 'UberMove',
-  },
-  cntnt2: {
-    width: '100%',
-    paddingHorizontal: '5%',
-    marginTop: height * 0.02,
-  },
-  cntgenre: {
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    paddingVertical: height * 0.04,
-  },
-    cntn2img:  {
-    top: height * -0.04,
-    width: width * 0.2,
-    height: width * 0.2,
-    borderRadius: 8,  
-    marginTop: -22,
-    left: width * 0.03,
 
-  },
-  titlecnt: {
+cntn2img:  {
+
+width: 300,
+height: 300,
+borderRadius: 8,  
+marginTop: 20,
+left: 24, 
+
+},
+  
+  slidetxt: {
     color: 'white',
     fontFamily: 'UberMove',
-    fontSize: width * 0.07,
-    left: width * -0.01,
+    fontSize: width * 0.03,
+    marginLeft: width * 0.02,
+    textAlign: 'left',
+    flexDirection: 'row',
+    marginTop: 40,
+    left : 8,
   },
-  desccnt: {
+
+  slidetxt2: {
     color: 'white',
     fontFamily: 'UberMove',
-    fontSize: width * 0.035,
-    left: width * -0.03,
+    fontSize: width * 0.03,
+    marginLeft: 230,
+    textAlign: 'left',
+    flexDirection: 'row',
+    marginTop: 40,
+    left : 5,
   },
-  cntalgn: {
-    marginLeft: 110,
-    width: '70%',
-  },
+  
+
   footer: {
-    bottom: height * -0.1,
+    height: height * 0.1,
     width: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-evenly',
-    alignItems: 'center',
-    paddingHorizontal: '5%',
-    paddingVertical: '30%',
+    left: width * 0.01,
+    position: 'absolute', 
+    bottom: 0, 
+    left: 0, 
+    right: 0,
+    top: 695,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    glowColor: 'white',
+    borderRadius: 10,
+    
+   
+
   },
   footerText: {
     color: 'white',
@@ -258,20 +279,76 @@ const styles = StyleSheet.create({
     fontSize: width * 0.04,
     textAlign: 'center',
     left: width * -0.02,
+    top: 14,
+   
   
   },
+  
+  descriptioncontainer: {
+    width: '93%',
+    paddingHorizontal: '5%',
+    marginTop: height * 0.04,
+    backgroundColor: "#03EE5F",
+    marginLeft: 15,
+    borderRadius: 20,
+  },
+  
   description: {
-    lineHeight: 36,
-    color: 'white',
+    lineHeight: 35,
+    color: '#3b3b3b',
     fontFamily: 'UberMove',
     fontSize: width * 0.045,
-    right: width * 0.2,
-    marginRight: width * -0.1,
-    paddingleft: width * 0.60,
+    marginRight: width * 0,
     textAlign: 'justify',
+    left: 0,
+    marginTop: 20,
+
   },
-  genre: {
-    marginLeft: 100,
-    width: '76%',
+
+  cntnt: {
+    width: '100%',
+    paddingHorizontal: '5%',
+    marginTop: height * 0.04,
   },
+  musicfont: {
+    color: '#FFFFFF',
+    fontFamily: 'UberMove',
+    fontSize: width * 0.09,
+    marginBottom: 7,
+  },
+  textcnt: {
+    height: height * 0.2,
+    width: '100%',
+    borderRadius: 16,
+    justifyContent: 'center',
+    padding: 0,
+    
+  },
+  contentxt: {
+    color: 'white',
+    fontFamily: 'UberMove',
+    textAlign: 'justify',
+    fontSize: width * 0.03,
+    marginLeft: width * 0.02,
+    marginRight: width * 0.01,
+    maxWidth: width * 0.8, 
+    numberOfLines: 3, 
+    ellipsizeMode: "tail" 
+  },
+  btn: {
+    alignSelf: 'center',
+    backgroundColor: '#FFFFFF',
+    paddingVertical: height * 0.01,
+    paddingHorizontal: width * 0.03,
+    top: height * 0.03,
+    left: 3,
+    borderRadius: 10,
+  },
+  buttonText: {
+    fontSize: width * 0.03,
+    color: '#000000',
+    fontFamily: 'UberMove',
+  },
+  
+  
 });

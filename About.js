@@ -4,6 +4,8 @@ import { Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Foundation from '@expo/vector-icons/Foundation';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 
 const { width, height } = Dimensions.get('window');
@@ -25,25 +27,30 @@ export default function Dashboard({ navigation }) {
 >
 
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{ flex: 1}}>
 
-      <View style={styles.nav}>
-        <View style={styles.textContainer}>
-          <Text style={styles.welcomeback}>About Us</Text>
+
+    <View style={styles.nav}>
+
+      <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+      <AntDesign name="arrowleft" size={24} color="#0bb949" />
+      </TouchableOpacity>
+
+          <View style={styles.textContainer}>
+            <Text style={styles.welcomeback}> About us </Text>
+          </View>
+
+          <MaterialCommunityIcons name="microsoft-xbox-controller-menu" size={35} color="#0bb949" />
+
         </View>
 
-        <TouchableOpacity style={styles.button}>
-          <View style={styles.linesContainer}>
-            <View style={styles.line1} />
-            <View style={styles.line2} />
-            <View style={styles.line3} />
-          </View>
-        </TouchableOpacity>
-      </View>
+      <ScrollView style={{ flex: 1}}>
+
+     
 
       <View style={styles.cntnt1}>
-      <Text style={styles.Headerfont} width={300} right={9}>Making Good Progress</Text>
-      <Text style={styles.Description} width={380}>
+        
+      <Text style={styles.Headerfont} width={300} right={9}>Making good progress</Text>
+      <Text style={styles.Description} width={345}>
         The team has created a music-themed UI design using React Native. The design is all about music, with a color scheme of 60% black, 30% white, and 10% green. The black background gives it a sleek look, the white parts make text easy to read, and the green adds a fresh touch. This design is inspired by a popular green-themed app. The focus is on simplicity and user-friendliness, so users can easily find their way around the app. Its made to be intuitive and enjoyable, even for first-time users. The content explores different music genres, their origins, and their popularity around the world. Its not just about listening to music but also learning more about its history and roots. Welcome to Group 3s Music UI app, where we bring together music, style, and an easy-to-use design!
       </Text>
       </View>
@@ -116,25 +123,27 @@ export default function Dashboard({ navigation }) {
         </View>
       </View>
 
+
+      </ScrollView>
+
       <View title = "footer" style={styles.footer}>
 
       <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
-         <Foundation name="home" size={30} color="#1DB954"/> 
-         <View>
-         <Text style={styles.footerText}>Home</Text>
-         </View>
-      </TouchableOpacity>
-     
-      <TouchableOpacity>
-      <FontAwesome name="users" size={24} color="#1DB954" />
-      <View>
-      <Text style={styles.footerText}>About</Text>
-         </View>
-      </TouchableOpacity>
+          <Foundation name="home" size={23} color="#1DB954" style={{ left: 4.5, top: 13 }} /> 
+          <View>
+          <Text style={styles.footerText}>Home</Text>
+          </View>
+        </TouchableOpacity>
 
-      </View>
+        <TouchableOpacity onPress={() => navigation.navigate('About')}>
+        <FontAwesome name="users" size={18} color="#1DB954" style={{ left: 10, top: 15.5 }}/>
+        <View>
+        <Text style={{ color: 'white', fontFamily: 'UberMove', fontSize: width * 0.04, textAlign: 'center', left: -4, top: 19,}}>About</Text>
+          </View>
+        </TouchableOpacity>
 
-      </ScrollView>
+        </View>
+
     </SafeAreaView>
     </LinearGradient>
   );
@@ -256,7 +265,7 @@ const styles = StyleSheet.create({
     color: '#1DB954',
     fontFamily: 'UberMove',
     fontSize: width * 0.05,
-    left: width * 0.01,
+    left: -23,
     paddingTop: height * 0.01,
     paddingBottom: height * 0.01,
   },
@@ -267,19 +276,31 @@ const styles = StyleSheet.create({
     color: 'white',
     fontFamily: 'UberMove',
     fontSize: width * 0.035,
-    left: width * 0.01,
+    left: -20,
   },
   cntalgn: {
     marginLeft: 110,
     width: '70%',
   },
+  
   footer: {
-    bottom: height * 0.02,
+    height: height * 0.1,
     width: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-evenly',
     left: width * 0.01,
+    position: 'absolute', 
+    bottom: 0, 
+    left: 0, 
+    right: 0,
+    top: 695,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    glowColor: 'white',
+    borderRadius: 10,
+    
+   
+
   },
   footerText: {
     color: 'white',
@@ -287,6 +308,8 @@ const styles = StyleSheet.create({
     fontSize: width * 0.04,
     textAlign: 'center',
     left: width * -0.02,
+    top: 14,
+   
   
   },
 

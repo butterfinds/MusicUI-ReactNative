@@ -52,7 +52,7 @@ source={require('./assets/Topimage.png')}
 style={{ width: 200, height: 200, marginBottom: 10 }}
 />
 
-<Text style={styles.title}>Login To Your Account</Text>
+<Text style={styles.title}>Log in to your Account</Text>
 <TextInput
 style={styles.input}
 placeholder=" Enter Email" placeholderTextColor="#888" value={username} onChangeText={setUsername}
@@ -63,12 +63,12 @@ placeholder=" Enter Password" placeholderTextColor="#888" value={password} onCha
 secureTextEntry={true}
 />
 <TouchableOpacity>
-<Text style={styles.linkText}>Forgot The Password?</Text>
+<Text style={styles.linkText}>Forgot password?</Text>
 </TouchableOpacity>
 
 
 <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-<Text style={styles.loginButtonText}>Login</Text>
+<Text style={styles.loginButtonText}>Log in</Text>
 </TouchableOpacity>
 
 <Modal transparent={true} visible={isModalVisible} animationType="slide">
@@ -83,7 +83,7 @@ secureTextEntry={true}
     </View>
   </View>
 </Modal>
-<Text style={styles.Littletitle}>--- Or Login With ---</Text>
+<Text style={styles.Littletitle}>--- or Log in with ---</Text>
 
 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10, left: 23,}}>
 <View style={{ borderRadius: 25, overflow: 'hidden', margin: 10 }}>

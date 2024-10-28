@@ -62,7 +62,7 @@ export default function Dashboard({navigation}) {
           <Text style={styles.slidetxt2}>00:00</Text>
           </View>
         <Slider
-            style={{width: width * 0.9, height: 40, marginLeft: 15, marginTop: 5}}
+            style={{width: width * 0.9, height: 40, marginLeft: 14, marginTop: 5}}
             minimumValue={0}
             maximumValue={1}
             minimumTrackTintColor="#0bb949"
@@ -70,7 +70,7 @@ export default function Dashboard({navigation}) {
           />
 
       
-        <View style={{flexDirection: 'row', marginLeft: 32, marginTop: 10}}>         
+        <View style={{flexDirection: 'row', marginLeft: width * 0.12, marginTop: width * 0.01}}>         
         <TouchableOpacity>
         <FontAwesome name="download" size={18} color="#0bb949"  style={{marginRight: 12, top: 9, }} />
         </TouchableOpacity>
@@ -114,7 +114,7 @@ export default function Dashboard({navigation}) {
           </View>  
       </View>
 
-      <View style={styles.cntnt}>
+      <View style={styles.content1}>
 
             <Text style={styles.musicfont}>Music</Text>
 
@@ -182,8 +182,7 @@ const styles = StyleSheet.create({
     borderRadius: (width * 0.15) / 2,
   },
   textContainer: {
-
-    marginLeft: -70,
+    marginRight: 130,
   },
   welcomeback: {
     color: '#ffffff',
@@ -194,10 +193,10 @@ const styles = StyleSheet.create({
   },
   
   
-  cntnt: {
+  content1: {
     width: '100%',
     paddingHorizontal: '5%',
-    marginTop: height * 0.04,
+    bottom: height * 0.05,
   },
   musicfont: {
     color: '#1DB954',
@@ -223,12 +222,11 @@ const styles = StyleSheet.create({
 
 cntn2img:  {
 
-width: 300,
+width: 330,
 height: 300,
 borderRadius: 8,  
 marginTop: 20,
-left: 24, 
-
+left: height * 0.04,
 },
   
   slidetxt: {
@@ -239,7 +237,7 @@ left: 24,
     textAlign: 'left',
     flexDirection: 'row',
     marginTop: 40,
-    left : 8,
+    left : height * 0.02,
   },
 
   slidetxt2: {
@@ -250,28 +248,18 @@ left: 24,
     textAlign: 'left',
     flexDirection: 'row',
     marginTop: 40,
-    left : 5,
+    left : height * 0.03,
   },
   
 
   footer: {
-    height: height * 0.1,
+    height: height * 0.08,
     width: '100%',
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'space-evenly',
-    left: width * 0.01,
-    position: 'absolute', 
-    bottom: 0, 
-    left: 0, 
-    right: 0,
-    top: 695,
+    position: 'absolute',
+    bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    glowColor: 'white',
-    borderRadius: 10,
-    
-   
-
   },
   footerText: {
     color: 'white',
@@ -288,14 +276,13 @@ left: 24,
     width: '93%',
     paddingHorizontal: '5%',
     marginTop: height * 0.04,
-    backgroundColor: "#03EE5F",
     marginLeft: 15,
     borderRadius: 20,
   },
   
   description: {
     lineHeight: 35,
-    color: '#3b3b3b',
+    color: '#FFFFFF',
     fontFamily: 'UberMove',
     fontSize: width * 0.045,
     marginRight: width * 0,
@@ -303,12 +290,6 @@ left: 24,
     left: 0,
     marginTop: 20,
 
-  },
-
-  cntnt: {
-    width: '100%',
-    paddingHorizontal: '5%',
-    marginTop: height * 0.04,
   },
   musicfont: {
     color: '#FFFFFF',

@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     borderRadius: (width * 0.15) / 2,
   },
   textContainer: {
-    marginLeft: -70,
+    marginRight: 130,
   },
   welcomeback: {
     color: '#FFFFFF',

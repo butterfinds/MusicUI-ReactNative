@@ -259,6 +259,7 @@ const styles = StyleSheet.create({
     height: width * 0.2,
     borderRadius: 90,  
     marginTop: -22,
+    right: width * 0.03,
 
   },
   titlecnt: {
@@ -284,23 +285,13 @@ const styles = StyleSheet.create({
   },
   
   footer: {
-    height: height * 0.1,
+    height: height * 0.08,
     width: '100%',
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'space-evenly',
-    left: width * 0.01,
-    position: 'absolute', 
-    bottom: 0, 
-    left: 0, 
-    right: 0,
-    top: 695,
+    position: 'absolute',
+    bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    glowColor: 'white',
-    borderRadius: 10,
-    
-   
-
   },
   footerText: {
     color: 'white',
